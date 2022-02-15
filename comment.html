@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment</title>
+</head>
+
+<body>
+    <section>
+        <h1>Add your comment here, please!!</h1>
+        <div id="comment-container">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, minima. Aliquid, temporibus quisquam
+                dolorem necessitatibus est, perspiciatis iusto aut at nam hic repudiandae quam mollitia! Repudiandae,
+                architecto ut! Ex, consectetur.</p>
+            <p>Itaque laboriosam pariatur optio reiciendis ipsum repellat cumque eveniet alias minus commodi rerum dolor
+                impedit voluptatibus ipsam excepturi quod, error rem quibusdam ad enim eum ipsa aliquam cum
+                perspiciatis. Quos?</p>
+            <p>Molestiae nisi aperiam suscipit animi nobis expedita voluptatem cupiditate libero repudiandae ab
+                voluptatibus quaerat voluptatum, qui delectus, asperiores aspernatur reprehenderit dignissimos
+                provident. Labore voluptate placeat eaque, dolorem aliquid quisquam nihil?</p>
+        </div>
+        <div>
+            <textarea name="" id="comment-box" cols="60" rows="5"></textarea>
+            <br>
+            <button id="submit-button">post</button>
+        </div>
+    </section>
+
+
+    <script>
+        // 1. get the submit button by id. add event listner.
+
+        document.getElementById('submit-button').addEventListener('click', function () {
+
+            // 2. as event get the text area element and assign  the text value in a const
+            const commentBox = document.getElementById('comment-box')
+            // const newComment = commentBox.value;
+
+            // 3.Create a new paragraph. add newComment as Inner Text.
+            const newComment = document.createElement('p');
+            newComment.innerText = commentBox.value;
+
+            // 4.  get the comment container, append the new p in comment container
+            const comments = document.getElementById('comment-container')
+            comments.appendChild(newComment);
+
+            // 5. clean text area
+
+            commentBox.value = '';
+
+        })
+
+
+    </script>
+</body>
+
+</html>

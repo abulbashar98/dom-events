@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Sum</title>
+</head>
+
+<body>
+    <input type="text" id="first-field" placeholder="firstbox">
+    <button id="first-field-button">Post first</button>
+    <br>
+    <input type="text" id="second-field" placeholder="secondbox">
+    <button id="second-field-button">Post second</button>
+
+    <br>
+    <br>
+    <button id="add-button">Add Inputs</button>
+
+    <script>
+        document.getElementById('first-field-button').addEventListener('click', function () {
+            const firstField = document.getElementById('first-field');
+            console.log(firstField.value);
+        })
+        document.getElementById('second-field-button').addEventListener('click', function () {
+            const secondField = document.getElementById('second-field');
+            console.log(secondField.value);
+        })
+
+
+        document.getElementById('add-button').addEventListener('click', function () {
+            // const addedValue = firstField.value + secondField.value;
+            const firstInput = document.getElementById('first-field').value;
+            const secondInput = document.getElementById('second-field').value;
+
+            addedValue = firstInput + secondInput;
+            console.log(addedValue);
+        })
+    </script>
+</body>
+
+</html>

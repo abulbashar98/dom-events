@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="clicking-method"></p>
+    <input id="name-field" type="text">
+    <button id="update-name">update</button>
+    <button onclick="usingFunction()">using function</button>
+    <button id="direct-addEventListener">direct add event listner</button>
+
+
+
+
+    <script>
+        // There are 2 most common ways to handle events.
+
+        //1. Using function on event
+        function usingFunction() {
+            const p = document.getElementById('clicking-method')
+            p.innerText = 'Set by using function'
+        }
+
+        // 2. handle by using direct add event listener
+
+        document.getElementById('direct-addEventListener').addEventListener('click', function () {
+            const p = document.getElementById('clicking-method')
+            p.innerText = 'set up by using direct add event listener'
+        })
+
+        // 3. handle by using direct add event listener case:2
+
+
+        document.getElementById('update-name').addEventListener('click', function () {
+            const p = document.getElementById('clicking-method')
+            const nameField = document.getElementById('name-field')
+            // console.log(nameField.value)
+            p.innerText = nameField.value;
+            nameField.value = '';
+        })
+
+
+    </script>
+</body>
+
+</html>

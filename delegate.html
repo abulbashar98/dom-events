@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event delegate</title>
+</head>
+
+<body>
+    <h2>Event delegate</h2>
+    <ul id="item-container">
+        <li class="item">Lorem, ipsum.</li>
+        <li class="item">Rerum, dignissimos.</li>
+        <li class="item">Delectus, id!</li>
+        <li class="item">Perspiciatis, nobis!</li>
+        <li class="item">Incidunt, sit?</li>
+        <li class="item">Ad, quod.</li>
+    </ul>
+    <button id="add-item">add item</button>
+
+
+
+    <script>
+
+        // Note:- we commented here coz when we add item through add item button event this event does not work there, even if we add item class to them
+
+        /*  const items = document.getElementsByClassName('item');
+          for (const item of items) {
+              item.addEventListener('click', function () {
+                  document.getElementById('item-container').removeChild(item);
+              })
+          }*/
+
+        document.getElementById('add-item').addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.innerText = 'Brand new item'
+            li.classList.add('item')
+
+            const parent = document.getElementById('item-container');
+            parent.appendChild(li)
+
+            // Note:- this is not recomended, rather we are going to delegate event to parent Node
+
+            // const items = document.getElementsByClassName('item');
+            // for (const item of items) {
+            //     item.addEventListener('click', function (event) {
+            //         // document.getElementById('item-container').removeChild(item);
+            //         event.target.parentNode.removeChild(event.target)
+            //     })
+        })
+
+        // Event Delegation
+        const parent = document.getElementById('item-container');
+        parent.addEventListener('click', function () {
+            event.target.parentNode.removeChild(event.target)
+        })
+
+
+    </script>
+</body>
+
+</html>
